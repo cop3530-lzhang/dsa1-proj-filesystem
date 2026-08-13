@@ -286,6 +286,25 @@ Your application must function as described below:
 1. You classes must be memory leak free. Memory leakage will be checked and
    graded in autograding.
 
+## Building and Testing
+
+A `Makefile` is provided to automate compilation and testing:
+- **Compile main program**: `make main`
+- **Run interactive CLI shell test**: `make test-run`
+- **Run all unit tests**: `make test-all`
+- **Run individual unit tests**:
+  - `make test-1-node`: Node class unit tests.
+  - `make test-2-touch-mkdir`: Filesystem creation unit tests (touch/mkdir).
+  - `make test-3-cd-mv`: Filesystem navigation unit tests (cd/mv).
+  - `make test-4-rm`: Filesystem removal unit tests (rm).
+- **Run memory leak checks**:
+  - `make test-mem1`: Memory leak check on Node class.
+  - `make test-mem2`: Memory leak check on Filesystem.
+  - `make test-mem`: Runs both memory leak checks.
+- **Clean build artifacts**: `make clean`
+
+> **Note for macOS / Xcode users**: Valgrind is not natively supported on macOS. If you are using macOS command line tools (Xcode), you cannot directly execute `valgrind` / `make test-mem` locally. Please launch a **GitHub Codespaces** instance on GitHub (or use a Linux container) to run memory leak checks.
+
 ## Important Notes:
 - Projects will be graded on whether they correctly solve the problem, and
   whether they adhere to good programming practices.
